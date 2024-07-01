@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_link_sharing_app/app_constants/theme.colors.dart';
 import 'package:flutter_link_sharing_app/app_constants/theme.typo.dart';
+import 'package:flutter_link_sharing_app/components/Login_form_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -86,9 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(
               height: 40,
             ),
-            Column(
-              children: [],
-            )
+            const LoginFormWidget()
           ],
         ),
       ),
