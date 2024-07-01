@@ -32,47 +32,66 @@ class MyApp extends StatelessWidget {
 * LOGIN SCREEN START
 * */
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      appBar: AppBar(
-        backgroundColor: AppColors.red,
-        title: const Text("LINK SHARING APP"),
-      ),
-      body: Expanded(
-        flex: 1,
-        child: Container(
-          color: Colors.redAccent,
-          padding: const EdgeInsets.all(32.0),
-          margin: const EdgeInsets.fromLTRB(0, 0, 0, 64),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Expanded(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      child: SvgPicture.asset(
-                        'assets/images/logo-devlinks-small.svg',
-                        width: 40,
-                      ),
-                    ),
-                    Text("devlinks", style: AppTypography.headingM)
-                  ],
+      body: Container(
+        constraints: const BoxConstraints.expand(),
+        alignment: Alignment.topLeft,
+        padding: const EdgeInsets.all(32.0),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                SvgPicture.asset(
+                  'assets/images/logo-devlinks-small.svg',
+                  height: 40,
                 ),
-              )
-            ],
-          ),
+                const SizedBox(width: 7.5),
+                Text("devlinks", style: AppTypography.headingM)
+              ],
+            ),
+            const SizedBox(
+              height: 64,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Login",
+                  style: GoogleFonts.instrumentSans(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
+                    fontStyle: FontStyle.normal,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  "Add your details below to get back into the app",
+                  style: AppTypography.bodyS,
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            Column(
+              children: [],
+            )
+          ],
         ),
-      )
+      ),
     );
   }
 }
