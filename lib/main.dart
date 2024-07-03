@@ -18,11 +18,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Link Sharing App',
       theme: ThemeData(
-          textTheme: TextTheme(
-              bodySmall: AppTypography.bodyS,
-              bodyMedium: AppTypography.bodyM,
-              headlineSmall: AppTypography.headingS,
-              headlineMedium: AppTypography.headingM)),
+          textTheme: const TextTheme(
+            bodySmall: AppTypography.bodyS,
+            bodyMedium: AppTypography.bodyM,
+            headlineSmall: AppTypography.headingS,
+            headlineMedium: AppTypography.headingM,
+          ),
+          fontFamily: "Instrument Sans"),
       home: const LoginScreen(),
     );
   }
@@ -50,6 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
         alignment: Alignment.topLeft,
         padding: const EdgeInsets.all(32.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -60,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 40,
                 ),
                 const SizedBox(width: 7.5),
-                Text("devlinks", style: AppTypography.headingM)
+                const Text("devlinks", style: AppTypography.headingM)
               ],
             ),
             const SizedBox(
@@ -78,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 8),
-                Text(
+                const Text(
                   "Add your details below to get back into the app",
                   style: AppTypography.bodyS,
                 )

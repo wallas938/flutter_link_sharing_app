@@ -19,39 +19,108 @@ class _LoginFormWidget extends State<LoginFormWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text("Email address"),
+        const Text("Email address", style: AppTypography.bodyM),
         const SizedBox(height: 4),
         Row(
           children: [
-            const SizedBox(width: 16,),
+            const SizedBox(
+              width: 16,
+            ),
             SvgPicture.asset(
               'assets/images/icon-email.svg',
               height: 16,
               width: 16,
             ),
-            const SizedBox(width: 12,),
+            const SizedBox(
+              width: 12,
+            ),
             Expanded(
-                child: TextFormField(
-              style: const TextStyle(
-                fontWeight: FontWeight.w400,
-                fontStyle: FontStyle.normal,
-                fontSize: 16,
-                fontFamily: "Instrument Sans",
-                color: AppColors.darkGrey,
+              child: TextFormField(
+                style: const TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontStyle: FontStyle.normal,
+                  fontSize: 16,
+                  fontFamily: "Instrument Sans",
+                  color: AppColors.darkGrey,
+                ),
+                controller: emailController,
+                decoration: const InputDecoration(
+                  hintText: "e.g. alex@email.com",
+                  border: InputBorder.none,
+                ),
               ),
-              controller: emailController,
-              decoration: const InputDecoration(
-                hintText: "e.g. alex@email.com",
-                border: InputBorder.none,
-              ),
-            )),
+            ),
           ],
         ),
         const SizedBox(height: 24),
-        TextFormField(
-          controller: passwordController,
-          decoration: const InputDecoration(
-              labelText: "Password", hintText: "Enter your password"),
+        const Text("Password", style: AppTypography.bodyM),
+        const SizedBox(height: 4),
+        // Email Address Input
+        Row(
+          children: [
+            const SizedBox(
+              width: 16,
+            ),
+            SvgPicture.asset(
+              'assets/images/icon-password.svg',
+              height: 16,
+              width: 16,
+            ),
+            const SizedBox(
+              width: 12,
+            ),
+            Expanded(
+              child: TextFormField(
+                obscureText: true,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontStyle: FontStyle.normal,
+                  fontSize: 16,
+                  fontFamily: "Instrument Sans",
+                  color: AppColors.darkGrey,
+                ),
+                controller: passwordController,
+                decoration: const InputDecoration(
+                  hintText: "Enter your password",
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+          ],
+        ), // PASSWORD_INPUT
+        const SizedBox(
+          height: 24,
+        ),
+        Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+              color: AppColors.purple,
+              borderRadius: BorderRadius.circular(8.0)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Login",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontStyle: FontStyle.normal,
+                        fontSize: 16,
+                        height: 1.5),
+                  ))
+            ],
+          ),
+        ), // LOGIN_BUTTON
+        const Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Don’t have an account?"),
+            Text("Create account"),
+          ],
         )
       ],
     );
