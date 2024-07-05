@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter_link_sharing_app/app_constants/theme.colors.dart';
 import 'package:flutter_link_sharing_app/app_constants/theme.typo.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -113,15 +115,30 @@ class _LoginFormWidget extends State<LoginFormWidget> {
                   ))
             ],
           ),
-        ), // LOGIN_BUTTON
-        const Column(
+        ),
+        const SizedBox(
+          height: 24,
+        ),
+        Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Don’t have an account?"),
-            Text("Create account"),
+            const Center(
+              child: Text("Don’t have an account?"),
+            ),
+            GestureDetector(
+              onTap: () {
+              },
+              child: const Text("Create account", style: TextStyle(
+                color: AppColors.purple,
+                fontWeight: FontWeight.w400,
+                fontStyle: FontStyle.normal,
+                fontSize: 16,
+                fontFamily: "Instrument Sans",
+              ),),
+            ),
           ],
-        )
+        ) // SIGN_UP_LINKS
       ],
     );
   }
