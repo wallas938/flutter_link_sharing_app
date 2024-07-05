@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:flutter_link_sharing_app/app_constants/theme.colors.dart';
 import 'package:flutter_link_sharing_app/app_constants/theme.typo.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -103,7 +102,12 @@ class _LoginFormWidget extends State<LoginFormWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (kDebugMode) {
+                      print(emailController.text);
+                      print(passwordController.text);
+                    }
+                  },
                   child: const Text(
                     "Login",
                     style: TextStyle(
@@ -128,14 +132,18 @@ class _LoginFormWidget extends State<LoginFormWidget> {
             ),
             GestureDetector(
               onTap: () {
+                Navigator.of(context).pushNamed("/signup");
               },
-              child: const Text("Create account", style: TextStyle(
-                color: AppColors.purple,
-                fontWeight: FontWeight.w400,
-                fontStyle: FontStyle.normal,
-                fontSize: 16,
-                fontFamily: "Instrument Sans",
-              ),),
+              child: const Text(
+                "Create account",
+                style: TextStyle(
+                  color: AppColors.purple,
+                  fontWeight: FontWeight.w400,
+                  fontStyle: FontStyle.normal,
+                  fontSize: 16,
+                  fontFamily: "Instrument Sans",
+                ),
+              ),
             ),
           ],
         ) // SIGN_UP_LINKS
