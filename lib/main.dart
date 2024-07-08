@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_link_sharing_app/Pages/signup_page.dart';
 import 'package:flutter_link_sharing_app/app_constants/theme.typo.dart';
-import 'package:flutter_link_sharing_app/widgets/Login_form_widget.dart';
-import 'package:flutter_link_sharing_app/widgets/Signup_form_widget.dart';
+import 'package:flutter_link_sharing_app/pages/login_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'Pages/editor_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,87 +28,12 @@ class MyApp extends StatelessWidget {
           ),
           fontFamily: "Instrument Sans"),
       routes: {
-        '/login': (context) => const LoginScreen(),
-        '/signup': (context) => const SignupScreen(),
+        '/login': (context) => const LoginPage(),
+        '/signup': (context) => const SignupPage(),
+        '/editor': (context) => const EditorPage()
       },
       debugShowCheckedModeBanner: false,
-      home: const LoginScreen(),
+      home: const LoginPage(),
     );
   }
 }
-
-/*
-*
-* LOGIN SCREEN START
-* */
-
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
-
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Scaffold(
-      body: Container(
-        constraints: const BoxConstraints.expand(),
-        alignment: Alignment.topLeft,
-        padding: const EdgeInsets.all(32.0),
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  SvgPicture.asset(
-                    'assets/images/logo-devlinks-small.svg',
-                    height: 40,
-                  ),
-                  const SizedBox(width: 7.5),
-                  const Text("devlinks", style: AppTypography.headingM)
-                ],
-              ), // LOGO
-              const SizedBox(
-                height: 64,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Login",
-                    style: GoogleFonts.instrumentSans(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700,
-                      fontStyle: FontStyle.normal,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  const Text(
-                    "Add your details below to get back into the app",
-                    style: AppTypography.bodyS,
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              const LoginFormWidget()
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-/*
-*
-* LOGIN SCREEN END
-* */

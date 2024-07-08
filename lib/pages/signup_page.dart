@@ -5,14 +5,14 @@ import 'package:flutter_link_sharing_app/app_constants/theme.typo.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
 
   @override
-  State<StatefulWidget> createState() => _SignupScreen();
+  State<SignupPage> createState() => _SignupPageState();
 }
 
-class _SignupScreen extends State<SignupScreen> {
+class _SignupPageState extends State<SignupPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
@@ -61,7 +61,7 @@ class _SignupScreen extends State<SignupScreen> {
                     style: AppTypography.bodyS,
                   )
                 ],
-              ),
+              ), // CREATE ACCOUNT...
               const SizedBox(
                 height: 40,
               ),

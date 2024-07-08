@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AppTypography {
   static const TextStyle bodyS = TextStyle(
