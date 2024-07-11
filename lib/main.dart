@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_link_sharing_app/Pages/signup_page.dart';
-import 'package:flutter_link_sharing_app/app_constants/theme.typo.dart';
 import 'package:flutter_link_sharing_app/pages/editor/editor_page.dart';
 import 'package:flutter_link_sharing_app/pages/login_page.dart';
 
@@ -16,14 +15,7 @@ class MyApp extends StatelessWidget {
     // TODO: implement build
     return MaterialApp(
       title: 'Link Sharing App',
-      theme: ThemeData(
-          textTheme: const TextTheme(
-            bodySmall: AppTypography.bodyS,
-            bodyMedium: AppTypography.bodyM,
-            headlineSmall: AppTypography.headingS,
-            headlineMedium: AppTypography.headingM,
-          ),
-          fontFamily: "Instrument Sans"),
+      theme: ThemeData(fontFamily: "Instrument Sans"),
       routes: {
         '/login': (context) => const LoginPage(),
         '/signup': (context) => const SignupPage(),

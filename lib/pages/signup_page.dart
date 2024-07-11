@@ -38,7 +38,8 @@ class _SignupPageState extends State<SignupPage> {
                     height: 40,
                   ),
                   const SizedBox(width: 7.5),
-                  const Text("devlinks", style: AppTypography.headingM)
+                  Text("devlinks",
+                      style: AppTypography.headingM(AppColors.darkGrey))
                 ],
               ), // LOGO
               const SizedBox(
@@ -56,16 +57,17 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  const Text(
+                  Text(
                     "Let’s get you started sharing your links!",
-                    style: AppTypography.bodyS,
+                    style: AppTypography.bodyS(AppColors.grey),
                   )
                 ],
               ), // CREATE ACCOUNT...
               const SizedBox(
                 height: 40,
               ),
-              const Text("Email address", style: AppTypography.bodyM),
+              Text("Email address",
+                  style: AppTypography.bodyM(AppColors.darkGrey)),
               const SizedBox(height: 4),
               Row(
                 children: [
@@ -99,7 +101,7 @@ class _SignupPageState extends State<SignupPage> {
                 ],
               ),
               const SizedBox(height: 24),
-              const Text("Password", style: AppTypography.bodyM),
+              Text("Password", style: AppTypography.bodyM(AppColors.darkGrey)),
               const SizedBox(height: 4),
               Row(
                 children: [
@@ -136,7 +138,7 @@ class _SignupPageState extends State<SignupPage> {
               const SizedBox(
                 height: 24,
               ),
-              const Text("Confirm password", style: AppTypography.bodyM),
+              Text("Confirm password", style: AppTypography.bodyM(AppColors.darkGrey)),
               const SizedBox(height: 4),
               Row(
                 children: [

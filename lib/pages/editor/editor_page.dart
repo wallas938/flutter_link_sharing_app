@@ -92,10 +92,21 @@ class _EditorPageState extends State<EditorPage> {
         ),
         body: const Padding(
           padding: EdgeInsets.all(16),
-          child: TabBarView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              LinksView(),
-              Icon(Icons.directions_car),
+              /*** TAB_BAR_VIEWS ***/
+              Expanded(
+                child: TabBarView(
+                  physics: BouncingScrollPhysics(),
+                  children: [
+                    LinksView(),
+                    Icon(Icons.directions_car),
+                  ],
+                ),
+              ),
+              /*** DIVIDER ***/
+              Text("data")
             ],
           ),
         ),

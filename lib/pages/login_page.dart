@@ -37,7 +37,8 @@ class _LoginPageState extends State<LoginPage> {
                     height: 40,
                   ),
                   const SizedBox(width: 7.5),
-                  const Text("devlinks", style: AppTypography.headingM)
+                  Text("devlinks",
+                      style: AppTypography.headingM(AppColors.darkGrey))
                 ],
               ), // LOGO
               const SizedBox(
@@ -55,16 +56,17 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  const Text(
+                  Text(
                     "Add your details below to get back into the app",
-                    style: AppTypography.bodyS,
+                    style: AppTypography.bodyS(AppColors.grey),
                   )
                 ],
               ), // ADD YOUR DETAILS...
               const SizedBox(
                 height: 40,
               ),
-              const Text("Email address", style: AppTypography.bodyM),
+              Text("Email address",
+                  style: AppTypography.bodyM(AppColors.darkGrey)),
               const SizedBox(height: 4),
               Row(
                 children: [
@@ -98,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
               const SizedBox(height: 24),
-              const Text("Password", style: AppTypography.bodyM),
+              Text("Password", style: AppTypography.bodyM(AppColors.darkGrey)),
               const SizedBox(height: 4),
               // Email Address Input
               Row(
