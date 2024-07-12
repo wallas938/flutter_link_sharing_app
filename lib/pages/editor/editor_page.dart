@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_link_sharing_app/app_constants/theme.colors.dart';
 import 'package:flutter_link_sharing_app/pages/editor/links_view.dart';
+import 'package:flutter_link_sharing_app/pages/editor/profile_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class EditorPage extends StatefulWidget {
@@ -105,7 +106,7 @@ class _EditorPageState extends State<EditorPage> {
                   physics: BouncingScrollPhysics(),
                   children: [
                     LinksView(),
-                    Icon(Icons.directions_car),
+                    ProfileView(),
                   ],
                 ),
               ),
