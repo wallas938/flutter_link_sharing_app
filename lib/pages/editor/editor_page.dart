@@ -75,18 +75,23 @@ class _EditorPageState extends State<EditorPage> {
                     ],
                   ),
                   /*** PREVIEW_TAB ***/
-                  Container(
-                    width: 52,
-                    height: 42,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border:
-                            Border.all(width: 1.0, color: AppColors.purple)),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 11, horizontal: 16),
-                      child: SvgPicture.asset(
-                        'assets/images/icon-preview-header.svg',
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pushNamed(context, "/preview");
+                    },
+                    child: Container(
+                      width: 52,
+                      height: 42,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border:
+                              Border.all(width: 1.0, color: AppColors.purple)),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 11, horizontal: 16),
+                        child: SvgPicture.asset(
+                          'assets/images/icon-preview-header.svg',
+                        ),
                       ),
                     ),
                   ),
