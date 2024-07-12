@@ -5,17 +5,16 @@ import 'package:flutter_link_sharing_app/app_constants/theme.typo.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<StatefulWidget> createState() => _SignupScreen();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _SignupScreen extends State<SignupScreen> {
+class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +37,8 @@ class _SignupScreen extends State<SignupScreen> {
                     height: 40,
                   ),
                   const SizedBox(width: 7.5),
-                  const Text("devlinks", style: AppTypography.headingM)
+                  Text("devlinks",
+                      style: AppTypography.headingM(AppColors.darkGrey))
                 ],
               ), // LOGO
               const SizedBox(
@@ -48,7 +48,7 @@ class _SignupScreen extends State<SignupScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Create account",
+                    "Login",
                     style: GoogleFonts.instrumentSans(
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
@@ -56,16 +56,17 @@ class _SignupScreen extends State<SignupScreen> {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  const Text(
-                    "Let’s get you started sharing your links!",
-                    style: AppTypography.bodyS,
+                  Text(
+                    "Add your details below to get back into the app",
+                    style: AppTypography.bodyS(AppColors.grey),
                   )
                 ],
-              ),
+              ), // ADD YOUR DETAILS...
               const SizedBox(
                 height: 40,
               ),
-              const Text("Email address", style: AppTypography.bodyM),
+              Text("Email address",
+                  style: AppTypography.bodyM(AppColors.darkGrey)),
               const SizedBox(height: 4),
               Row(
                 children: [
@@ -99,8 +100,9 @@ class _SignupScreen extends State<SignupScreen> {
                 ],
               ),
               const SizedBox(height: 24),
-              const Text("Password", style: AppTypography.bodyM),
+              Text("Password", style: AppTypography.bodyM(AppColors.darkGrey)),
               const SizedBox(height: 4),
+              // Email Address Input
               Row(
                 children: [
                   const SizedBox(
@@ -126,50 +128,13 @@ class _SignupScreen extends State<SignupScreen> {
                       ),
                       controller: passwordController,
                       decoration: const InputDecoration(
-                        hintText: "At least 8 characters",
+                        hintText: "Enter your password",
                         border: InputBorder.none,
                       ),
                     ),
                   ),
                 ],
               ), // PASSWORD_INPUT
-              const SizedBox(
-                height: 24,
-              ),
-              const Text("Confirm password", style: AppTypography.bodyM),
-              const SizedBox(height: 4),
-              Row(
-                children: [
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  SvgPicture.asset(
-                    'assets/images/icon-password.svg',
-                    height: 16,
-                    width: 16,
-                  ),
-                  const SizedBox(
-                    width: 12,
-                  ),
-                  Expanded(
-                    child: TextFormField(
-                      obscureText: true,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontStyle: FontStyle.normal,
-                        fontSize: 16,
-                        fontFamily: "Instrument Sans",
-                        color: AppColors.darkGrey,
-                      ),
-                      controller: confirmPasswordController,
-                      decoration: const InputDecoration(
-                        hintText: "At least 8 characters",
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
-                ],
-              ), // CONFIRM_PASSWORD_INPUT
               const SizedBox(
                 height: 24,
               ),
@@ -185,13 +150,11 @@ class _SignupScreen extends State<SignupScreen> {
                     TextButton(
                         onPressed: () {
                           if (kDebugMode) {
-                            print(emailController.text);
-                            print(passwordController.text);
-                            print(confirmPasswordController.text);
+                            Navigator.of(context).pushNamed("/editor");
                           }
                         },
                         child: const Text(
-                          "Create new account",
+                          "Login",
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
@@ -201,7 +164,7 @@ class _SignupScreen extends State<SignupScreen> {
                         ))
                   ],
                 ),
-              ), // SUBMIT_BUTTON
+              ),
               const SizedBox(
                 height: 24,
               ),
@@ -210,14 +173,14 @@ class _SignupScreen extends State<SignupScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Center(
-                    child: Text("Already have an account?"),
+                    child: Text("Don’t have an account?"),
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).pushNamed("/");
+                      Navigator.of(context).pushNamed("/signup");
                     },
                     child: const Text(
-                      "Login",
+                      "Create account",
                       style: TextStyle(
                         color: AppColors.purple,
                         fontWeight: FontWeight.w400,
@@ -228,7 +191,7 @@ class _SignupScreen extends State<SignupScreen> {
                     ),
                   ),
                 ],
-              ) // LOGIN_LINKS
+              ) // SIGN_UP_LINKS
             ],
           ),
         ),
