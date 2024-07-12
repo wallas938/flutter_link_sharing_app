@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_link_sharing_app/app_constants/theme.colors.dart';
 import 'package:flutter_link_sharing_app/pages/editor/links_view.dart';
@@ -19,6 +20,7 @@ class _EditorPageState extends State<EditorPage> {
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
+          /*** TAB_BAR_CONTAINER ***/
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(42),
             child: Padding(
@@ -26,11 +28,13 @@ class _EditorPageState extends State<EditorPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  /*** LOGO_DEVLINKS ***/
                   SizedBox(
                     child: SvgPicture.asset(
                       'assets/images/logo-devlinks-small.svg',
                     ),
                   ),
+                  /*** LINKS_&_PROFILE_TAB ***/
                   TabBar(
                     indicatorPadding: EdgeInsets.zero,
                     labelPadding: EdgeInsets.zero,
@@ -43,7 +47,6 @@ class _EditorPageState extends State<EditorPage> {
                     labelStyle: const TextStyle(
                         fontSize: 18.0, fontWeight: FontWeight.bold),
                     tabs: [
-                      // LOGO_TAB
                       Container(
                         decoration: BoxDecoration(
                             color: AppColors.lightPurple,
@@ -63,20 +66,21 @@ class _EditorPageState extends State<EditorPage> {
                         padding: const EdgeInsets.symmetric(
                             vertical: 11, horizontal: 27),
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: Colors.amber),
+                            borderRadius: BorderRadius.circular(8)),
                         child: SvgPicture.asset(
                           'assets/images/icon-profile-header.svg',
                         ),
                       ), // PROFILE_TAB
                     ],
                   ),
+                  /*** PREVIEW_TAB ***/
                   Container(
                     width: 52,
                     height: 42,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        border: Border.all(width: 1.0, color: AppColors.purple)),
+                        border:
+                            Border.all(width: 1.0, color: AppColors.purple)),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           vertical: 11, horizontal: 16),
@@ -84,19 +88,19 @@ class _EditorPageState extends State<EditorPage> {
                         'assets/images/icon-preview-header.svg',
                       ),
                     ),
-                  ), // PREVIEW_TAB
+                  ),
                 ],
               ),
             ),
           ),
         ),
-        body: const Padding(
-          padding: EdgeInsets.all(16),
+        body: Padding(
+          padding: const EdgeInsets.all(16),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               /*** TAB_BAR_VIEWS ***/
-              Expanded(
+              const Expanded(
                 child: TabBarView(
                   physics: BouncingScrollPhysics(),
                   children: [
@@ -105,8 +109,43 @@ class _EditorPageState extends State<EditorPage> {
                   ],
                 ),
               ),
-              /*** DIVIDER ***/
-              Text("data")
+              const SizedBox(height: 16),
+              /*** SAVE_BUTTON ***/
+              Container(
+                width: double.infinity,
+                padding:
+                    const EdgeInsets.symmetric(vertical: 11, horizontal: 27),
+                decoration: const BoxDecoration(
+                    border: Border(
+                        top: BorderSide(color: AppColors.borders1, width: 1))),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: TextButton(
+                          onPressed: () {
+                            if (kDebugMode) {}
+                          },
+                          style: TextButton.styleFrom(
+                              backgroundColor: AppColors.purple,
+                              side: BorderSide.none,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              )),
+                          child: const Text(
+                            "Save",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontStyle: FontStyle.normal,
+                                fontSize: 16,
+                                height: 1.5),
+                          )),
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
         ),
