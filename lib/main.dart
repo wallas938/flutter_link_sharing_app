@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
         '/editor': (context) => const EditorPage(),
         '/preview': (context) => const PreviewPage(),
       },
-      debugShowCheckedModeBanner: false,
       home: const LoginPage(),
     );
   }
